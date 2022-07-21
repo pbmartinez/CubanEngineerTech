@@ -10,25 +10,18 @@ namespace Lexicographics.DependencyInjectionExtensions
 {
     public static class IServiceCollectionExtensions
     {
-
+        /// <summary>
+        /// Adds default implementation of INextGreaterPermutation to IServiceCollection. 
+        /// Provide a Action<NextPermutationOptions> to override default implementation of INextGreaterPermutation.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="nextPermutationOptions"></param>
+        /// <exception cref="InvalidOperationException"></exception>
         public static void AddNextPermutationStrategy(this IServiceCollection services, Action<NextPermutationOptions>? nextPermutationOptions = null)
         {            
             var options = new NextPermutationOptions();
             nextPermutationOptions?.Invoke(options);
-            switch (options.LifeCycle)
-            {
-                case NextPermutationStrategyLifeCycle.Singleton:
-                    services.AddSingleton<INextGreaterPermutation, GenericNextGreaterPermutation>();
-                    break;
-                case NextPermutationStrategyLifeCycle.Scoped:
-                    services.AddScoped<INextGreaterPermutation, GenericNextGreaterPermutation>();
-                    break;
-                case NextPermutationStrategyLifeCycle.Transient:
-                    services.AddTransient<INextGreaterPermutation, GenericNextGreaterPermutation>();
-                    break;
-                default:
-                    throw new InvalidOperationException(Localization.Resource.message_InvalidaConfigurationOnLifeCycle);
-            }
+            services.Add(options.DefaultImplementation);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 using Lexicographics.Strategies.NextGreaterPermutation;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,12 @@ using System.Threading.Tasks;
 
 namespace Lexicographics.DependencyInjectionExtensions
 {
+    /// <summary>
+    /// Options builder used to override default behaviors
+    /// </summary>
     public class NextPermutationOptions
     {
-        public NextPermutationStrategyLifeCycle LifeCycle { get; set; } = NextPermutationStrategyLifeCycle.Scoped;
-        public INextGreaterPermutation DefaultStrategy { get; set; } = new GenericNextGreaterPermutation();  
+        public ServiceDescriptor DefaultImplementation { get; set; } = 
+            new ServiceDescriptor(typeof(INextGreaterPermutation), typeof(GenericNextGreaterPermutation), ServiceLifetime.Scoped);
     }
 }
