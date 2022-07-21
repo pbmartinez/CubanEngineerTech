@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "7d3cc005-0171-4e26-a7ad-cbb993c921a6",
+		"name": "CubanEngineerTech",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Next Greater Permutation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7190/lexicographic/next-greater-permutation?items=1,2,3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7190",
+					"path": [
+						"lexicographic",
+						"next-greater-permutation"
+					],
+					"query": [
+						{
+							"key": "items",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "items",
+							"value": "1,2,3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Bad Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7190/lexicographic/next-greater-permutation?items=",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7190",
+					"path": [
+						"lexicographic",
+						"next-greater-permutation"
+					],
+					"query": [
+						{
+							"key": "items",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
