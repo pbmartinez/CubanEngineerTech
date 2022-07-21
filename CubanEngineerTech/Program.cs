@@ -1,8 +1,10 @@
 ﻿
 
+
+
 using CubanEngineerTech.Strategies;
 
-INextGreaterPermutationStrategy strategy = new GenericNextGreaterPermutationStrategy();
+INextGreaterPermutation strategy = new GenericNextGreaterPermutation();
 
 var intArray = new int[] { 1, 2, 3 };
 var stringArray = new string[] {"1","2","3"};
