@@ -30,6 +30,7 @@ namespace Tests.WebApiTests
             new object[] { new int[] { 1 }, StatusCodes.Status200OK, new int[] { 1 } },
             new object[] { new int[] { 1,2,3 }, StatusCodes.Status200OK, new int[] { 1,3,2 } },
             new object[] { new int[] { 3,2,1 }, StatusCodes.Status200OK, new int[] { 1,2,3 } },
+            new object[] { new int[] { 1,1,5 }, StatusCodes.Status200OK, new int[] { 1,5,1 } },
         };
 
         [Test]
