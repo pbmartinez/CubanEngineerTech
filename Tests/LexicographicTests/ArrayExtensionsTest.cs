@@ -73,5 +73,24 @@ namespace Tests.LexicographicTests
             action.Should().Throw<IndexOutOfRangeException>();
         }
 
+        [Test]
+        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 0, 1)]
+        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 1, 2)]
+        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 2, 3)]
+        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 3, 4)]
+        public void DoNotThrow_OutOfRangeException_OnGuard_IfRangeIsOk(int[] array, int posA, int posB)
+        {
+            var action = () => 
+            { 
+                array.GuardAgainstIndexOutOfRange( posA); 
+                array.GuardAgainstIndexOutOfRange( posB); 
+                array.GuardAgainstIndexOutOfRange( posA, posB); 
+            };
+            action.Should().NotThrow<IndexOutOfRangeException>();
+        }
+
+
+
+
     }
 }
