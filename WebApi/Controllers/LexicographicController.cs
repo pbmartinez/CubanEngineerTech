@@ -37,8 +37,5 @@ namespace WebApi.Controllers
             }
             return Ok(cacheValue);
         }
-
-
-
     }
 }
