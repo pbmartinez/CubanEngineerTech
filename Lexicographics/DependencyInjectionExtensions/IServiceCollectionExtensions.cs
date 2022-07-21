@@ -13,7 +13,6 @@ namespace Lexicographics.DependencyInjectionExtensions
 
         public static void AddNextPermutationStrategy(this IServiceCollection services, Action<NextPermutationOptions>? nextPermutationOptions = null)
         {            
-            services.Configure(nextPermutationOptions);
             var options = new NextPermutationOptions();
             nextPermutationOptions?.Invoke(options);
             switch (options.LifeCycle)
