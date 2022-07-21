@@ -1,4 +1,6 @@
 using Lexicographics.DependencyInjectionExtensions;
+using Lexicographics.Strategies.NextGreaterPermutation;
+using WebApi.CustomStrategies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddNextPermutationStrategy();
+
+// Uncomment here to provide custom implementation and delete previous line
+
+//builder.Services.AddNextPermutationStrategy(options =>
+//{
+//    options.DefaultImplementation =
+//        new ServiceDescriptor(typeof(INextGreaterPermutation), typeof(ComplexGreaterPermutation), ServiceLifetime.Scoped);
+//});
 
 var app = builder.Build();
 
