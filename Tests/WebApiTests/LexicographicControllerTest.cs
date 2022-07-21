@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Controllers;
+using WebApi.Helpers;
 
 namespace Tests.WebApiTests
 {
@@ -22,7 +23,7 @@ namespace Tests.WebApiTests
     public class LexicographicControllerTest
     {
         private static WebApiApplication Application { get; set; } = WebApiApplication.GetWebApiApplication();
-
+        private HttpClient HttpClient { get; set; } = Application.CreateClient();
         private static readonly object[] ItemsWithResponses =
         {
             new object[] { null!, StatusCodes.Status400BadRequest, null! },
@@ -35,12 +36,17 @@ namespace Tests.WebApiTests
         [TestCaseSource(nameof(ItemsWithResponses))]
         public async Task Get_Next_Greater_Permutation(int[] array, HttpStatusCode statusCode, int[] expectedResult)
         {
-            var response = await Application.Server.CreateHttpApiRequest<LexicographicController>(g => g.Get(array.AsEnumerable())).GetAsync();
+            var response = await HttpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get,
+                ApiEndpoints.Get.Lexicographic(array)));
+
             using (new AssertionScope())
             {
                 response.StatusCode.Should().Be(statusCode);
-                //var result = await response.ReadContentAsAsync<int[]>();
-                //result.Should().BeEquivalentTo(expectedResult);
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.ReadContentAsAsync<int[]>();
+                    result.Should().BeEquivalentTo(expectedResult);
+                }
             }
         }
     }
