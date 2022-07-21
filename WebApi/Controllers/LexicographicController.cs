@@ -18,7 +18,7 @@ namespace WebApi.Controllers
         }
         
         [HttpGet("next-greater-permutation")]
-        public ActionResult<string[]> Get([ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<int> items) 
+        public ActionResult<int[]> Get([ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<int> items) 
         {
             var array = items.ToArray();
             if (array == null || !array.Any())
