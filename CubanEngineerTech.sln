@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubanEngineerTech", "CubanEngineerTech\CubanEngineerTech.csproj", "{D7DD5C99-BF7A-452A-92AB-A0233B0A9EA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{EF6BE48D-2B01-405C-B07A-8F8CA485DCA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7DD5C99-BF7A-452A-92AB-A0233B0A9EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7DD5C99-BF7A-452A-92AB-A0233B0A9EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7DD5C99-BF7A-452A-92AB-A0233B0A9EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7DD5C99-BF7A-452A-92AB-A0233B0A9EA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF6BE48D-2B01-405C-B07A-8F8CA485DCA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF6BE48D-2B01-405C-B07A-8F8CA485DCA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF6BE48D-2B01-405C-B07A-8F8CA485DCA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF6BE48D-2B01-405C-B07A-8F8CA485DCA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4AB008C-EB02-44E2-9FA5-303FEB645232}
+	EndGlobalSection
+EndGlobal
