@@ -1,3 +1,4 @@
+using Hellang.Middleware.ProblemDetails;
 using Lexicographics.DependencyInjectionExtensions;
 using Lexicographics.Strategies.NextGreaterPermutation;
 using WebApi.CustomStrategies;
@@ -12,7 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.Configure<CacheOptions>(builder.Configuration.GetSection("CacheOptions"));
-
+builder.Services.AddProblemDetails();
 builder.Services.AddMemoryCache();
 builder.Services.AddNextPermutationStrategy();
 
@@ -25,6 +26,8 @@ builder.Services.AddNextPermutationStrategy();
 //});
 
 var app = builder.Build();
+
+app.UseProblemDetails();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
